@@ -1,8 +1,42 @@
+'use client';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [incubatorTemp, setIncubatorTemp] = useState('');
+  const [incubatorHumi, setIncubatorHumi] = useState('');
+  const [brooderTemp, setBrooderTemp] = useState('');
+  const [brooderHumi, setBrooderHumi] = useState('');
+  const [bigChickTemp, setBigChickTemp] = useState('');
+
+  useEffect(() => {
+    const fetchreceivedTag = async () => {
+
+      let res = await fetch("/api/fetchtag", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const receivedData = await res.json();
+      console.log("response from fetchdata:", receivedData);
+
+      if (receivedData.success == true) {
+        tagFetchStatus = false;
+        clearInterval(intervalId);
+        setIncubatorTemp(receivedData.incubatorTemp);
+        setIncubatorHumi(receivedData.incubatorHumi);
+        setBrooderTemp(receivedData.brooderTemp);
+        setBrooderHumi(receivedData.brooderHumi);
+        setBigChickTemp(receivedData.bigChickTemp);
+      } else {
+        console.error(receivedData);
+      }
+    }
+  }, []);
+
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="flex-col justify-center">
