@@ -10,6 +10,9 @@ export async function POST(request) {
     const receivedData = await request.json();
     connectToDatabase().then(() => console.log("db connected"));
     console.log(receivedData);
+    console.log(receivedData.incubatorTemp);
+    console.log(receivedData.incubatorHumi);
+
     if (request.method == "POST") {
         try {
             //   const vehicleInfo = new mongoose.models.vehicles(data);
