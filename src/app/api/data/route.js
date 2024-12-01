@@ -15,14 +15,15 @@ export async function POST(request) {
 
     if (request.method == "POST") {
         try {
-            //   const data = new mongoose.models.farmData(receivedData);
-            const updatedData = await mongoose.models.farmData.findOneAndUpdate(
-                { farmID: "123abc456" }, // Find the farm by id
-                { incubatorTemp: receivedData.incubatorTemp, incubatorHumi: receivedData.incubatorHumi },  // Update the data            
-                { new: true }                                  // Return the updated document
-            );
+            const data = new mongoose.models.farmData(receivedData);
+            // const updatedData = await mongoose.models.farmData.findOneAndUpdate(
+            //     { farmID: "123abc456" }, // Find the farm by id
+            //     { incubatorTemp: receivedData.incubatorTemp, incubatorHumi: receivedData.incubatorHumi },  // Update the data            
+            //     { new: true }                                  // Return the updated document
+            // );
 
-            //   await data.save().then(() => console.log("data saved"), () => console.log("data save failed"));
+            await data.save().then(() => console.log("data saved"), () => console.log("data save failed"));
+            console.log(data);
             console.log(updatedData);
             return NextResponse.json({ success: true, Response: 'data updated' });
         }
