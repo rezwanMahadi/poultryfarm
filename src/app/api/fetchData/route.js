@@ -14,7 +14,14 @@ export async function POST(request) {
         console.log('Query result:', found_data);
 
         if (found_data) {
-            return NextResponse.json({ success:true, found_data });
+            return NextResponse.json({
+                success:true,
+                incubatorTemp: found_data.incubatorTemp,
+                incubatorHumi: found_data.incubatorHumi,
+                brooderTemp: found_data.brooderTemp,
+                brooderHumi: found_data.brooderHumi,
+                bigChickTemp: found_data.bigChickTemp
+            });
         } else {
             return NextResponse.json({ success:false, msg: "data not found" });
         }
