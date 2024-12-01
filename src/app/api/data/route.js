@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
-const farmdata = require("@/src/app/api/model/farmData")
+const farmdata = require("@/app/api/model/farmData")
 
 async function connectToDatabase() {
     await mongoose.connect("mongodb+srv://inventory_user1:CknB8IRcsIUptTZn@cluster0.s2kre.mongodb.net/poultryFarm");
