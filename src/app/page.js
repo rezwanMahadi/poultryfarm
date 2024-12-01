@@ -172,74 +172,82 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center">
       <div className="flex-col justify-center">
-        <h1 className="text-center text-lime-600 text-lg">Poultry Farm</h1>
-        <div className="border border-slate-700 rounded-xl w-[700px] mt-4">
-          <h3 className="text-center">Incubator Section</h3>
-          <div>
+        <div className="bg-sky-800 mt-8">
+          <h1 className="text-center text-white text-[30px]">Poultry Farm</h1>
+        </div>
+        <div className="border border-slate-700 rounded-xl w-[700px] mt-4 bg-sky-50">
+          <div className="bg-slate-300 rounded-t-xl pt-2 pb-2">
+            <h3 className="text-center">Incubator Section</h3>
+          </div>
+          <div className="mt-2 mb-4">
             <div className="flex justify-center items-center space-x-3">
               <div>
                 <Label>Live Temperature</Label>
-                <Input value={incubatorTemp} readOnly></Input>
+                <Input className="bg-white" value={incubatorTemp} readOnly></Input>
               </div>
               <div>
                 <Label>Change Temperature</Label>
-                <Input placeholder="Input Temperature"></Input>
+                <Input className="bg-white" placeholder="Input Temperature"></Input>
               </div>
               <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
             </div>
             <div className="flex justify-center items-center space-x-3">
               <div>
                 <Label>Live Humidity</Label>
-                <Input value={incubatorHumi} readOnly></Input>
+                <Input className="bg-white" value={incubatorHumi} readOnly></Input>
               </div>
               <div>
                 <Label>Change Humidity</Label>
-                <Input placeholder="Input Humidity"></Input>
+                <Input className="bg-white" placeholder="Input Humidity"></Input>
               </div>
               <Button className="bg-blue-500 hover:bg-blue-600">Change Humidity</Button>
             </div>
           </div>
         </div>
-        <div className="border border-slate-700 rounded-xl w-[700px] mt-4">
-          <h3 className="text-center">Brooding Section</h3>
-          <div>
+        <div className="border border-slate-700 rounded-xl w-[700px] mt-4 bg-sky-50">
+          <div className="bg-slate-300 rounded-t-xl pt-2 pb-2">
+            <h3 className="text-center">Brooding Section</h3>
+          </div>
+          <div className="mt-2 mb-4">
             <div className="flex justify-center items-center space-x-3">
               <div>
                 <Label>Live Temperature</Label>
-                <Input value={brooderTemp} readOnly></Input>
+                <Input className="bg-white" value={brooderTemp} readOnly></Input>
               </div>
               <div>
                 <Label>Change Temperature</Label>
-                <Input placeholder="Input Temperature"></Input>
+                <Input className="bg-white" placeholder="Input Temperature"></Input>
               </div>
               <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
             </div>
             <div className="flex justify-center items-center space-x-3">
               <div>
                 <Label>Live Humidity</Label>
-                <Input value={brooderHumi} readOnly></Input>
+                <Input className="bg-white" value={brooderHumi} readOnly></Input>
               </div>
               <div>
                 <Label>Change Humidity</Label>
-                <Input placeholder="Input Humidity"></Input>
+                <Input className="bg-white" placeholder="Input Humidity"></Input>
               </div>
               <Button className="bg-blue-500 hover:bg-blue-600">Change Humidity</Button>
             </div>
           </div>
         </div>
-        <div className="border border-slate-700 rounded-xl w-[700px] mt-4">
-          <h3 className="text-center">Mature Section</h3>
-          <div>
+        <div className="border border-slate-700 rounded-xl w-[700px] mt-4 bg-sky-50">
+          <div className="bg-slate-300 rounded-t-xl pt-2 pb-2">
+            <h3 className="text-center">Mature Section</h3>
+          </div>
+          <div className="mt-2 mb-4">
             <div className="flex justify-center items-center space-x-3">
               <div>
                 <Label>Live Temperature</Label>
-                <Input value={bigChickTemp} readOnly></Input>
+                <Input className="bg-white" value={bigChickTemp} readOnly></Input>
               </div>
               <div>
                 <Label>Change Temperature</Label>
-                <Input placeholder="Input Temperature"></Input>
+                <Input className="bg-white" placeholder="Input Temperature"></Input>
               </div>
               <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
             </div>
