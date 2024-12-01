@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const fetchreceivedTag = async () => {
 
-      let res = await fetch("/api/fetchtag", {
+      let res = await fetch("/api/fetchData", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
