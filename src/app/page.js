@@ -243,17 +243,6 @@ export default function Home() {
               </div>
               <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
             </div>
-            <div className="flex justify-center items-center space-x-3">
-              <div>
-                <Label>Live Humidity</Label>
-                <Input value="70%" readOnly></Input>
-              </div>
-              <div>
-                <Label>Change Humidity</Label>
-                <Input placeholder="Input Humidity"></Input>
-              </div>
-              <Button className="bg-blue-500 hover:bg-blue-600">Change Humidity</Button>
-            </div>
           </div>
         </div>
       </div>
