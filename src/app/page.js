@@ -268,6 +268,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="grid grid-cols-3 space-x-5">
+          <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
+          <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
+          <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
+        </div>
       </div>
     </div>
   );
