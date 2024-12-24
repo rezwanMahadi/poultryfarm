@@ -20,7 +20,17 @@ export async function POST(request) {
                 incubatorHumi: found_data.incubatorHumi,
                 brooderTemp: found_data.brooderTemp,
                 brooderHumi: found_data.brooderHumi,
-                bigChickTemp: found_data.bigChickTemp
+                bigChickTemp: found_data.bigChickTemp,
+                incubatorTempUpLimit: found_data.incubatorTempUpLimit,
+                incubatorTempDownLimit: found_data.incubatorTempDownLimit,
+                incubatorHumiUpLimit: found_data.incubatorHumiUpLimit,
+                incubatorHumiDownLimit: found_data.incubatorHumiDownLimit,
+                brooderTempUpLimit: found_data.brooderTempUpLimit,
+                brooderTempDownLimit: found_data.brooderTempDownLimit,
+                brooderHumiUpLimit: found_data.brooderHumiUpLimit,
+                brooderHumiDownLimit: found_data.brooderHumiDownLimit,
+                bigChickTempUpLimit: found_data.bigChickTempUpLimit,
+                bigChickTempDownLimit: found_data.bigChickTempDownLimit
             });
         } else {
             return NextResponse.json({ success:false, msg: "data not found" });
