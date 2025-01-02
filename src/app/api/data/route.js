@@ -28,6 +28,9 @@ export async function POST(request) {
                 { new: true }                                  // Return the updated document
             );
 
+            const recordData = new mongoose.models.farmDataRecord(receivedData);
+            await recordData.save().then(() => console.log("recordData saved"), () => console.log("recordData save failed"));
+
             // await data.save().then(() => console.log("data saved"), () => console.log("data save failed"));
             // console.log(data);
             console.log(updatedData);

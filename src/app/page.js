@@ -151,6 +151,14 @@ export default function Home() {
   const [bigChickTempDownLimitData, setBigChickTempDownLimitData] = useState('');
   const [incubatorTempUpLimit, setincubatorTempUpLimit] = useState('');
   const [incubatorTempDownLimit, setincubatorTempDownLimit] = useState('');
+  const [incubatorHumiUpLimit, setincubatorHumiUpLimit] = useState('');
+  const [incubatorHumiDownLimit, setincubatorHumiDownLimit] = useState('');
+  const [brooderTempUpLimit, setBrooderTempUpLimit] = useState('');
+  const [brooderTempDownLimit, setBrooderTempDownLimit] = useState('');
+  const [brooderHumiUpLimit, setBrooderHumiUpLimit] = useState('');
+  const [brooderHumiDownLimit, setBrooderHumiDownLimit] = useState('');
+  const [bigChickTempUpLimit, setMatureTempUpLimit] = useState('');
+  const [bigChickTempDownLimit, setMatureTempDownLimit] = useState('');
 
 
   const handleChange = (e) => {
@@ -158,64 +166,188 @@ export default function Home() {
       setincubatorTempUpLimit(e.target.value)
     }
     else if (e.target.name == 'incubatorTempDownLimitField') {
-      setincubatorTempUpLimit(e.target.value)
+      setincubatorTempDownLimit(e.target.value)
+    }
+    else if (e.target.name == 'incubatorHumiUpLimitField') {
+      setincubatorHumiUpLimit(e.target.value)
+    }
+    else if (e.target.name == 'incubatorHumiDownLimitField') {
+      setincubatorHumiDownLimit(e.target.value)
+    }
+    else if (e.target.name == 'brooderTempUpLimitField') {
+      setBrooderTempUpLimit(e.target.value)
+    }
+    else if (e.target.name == 'brooderTempDownLimitField') {
+      setBrooderTempDownLimit(e.target.value)
+    }
+    else if (e.target.name == 'brooderHumiUpLimitField') {
+      setBrooderHumiUpLimit(e.target.value)
+    }
+    else if (e.target.name == 'brooderHumiDownLimitField') {
+      setBrooderHumiDownLimit(e.target.value)
+    }
+    else if (e.target.name == 'matureTempUpLimitField') {
+      setMatureTempUpLimit(e.target.value)
+    }
+    else if (e.target.name == 'matureTempDownLimitField') {
+      setMatureTempDownLimit(e.target.value)
     }
   }
 
-  // const handleSubmitIncubatorTemp = async (e) => {
-  //   e.preventDefault();
-  //   if (rfidValue != '' && nameValue != '' && quantityValue != '' && categoryValue != '') {
-  //     const id = toast.loading("Please wait...", {
-  //       position: "top-center",
-  //     })
-  //     const data = {
-  //       tag: rfidValue,
-  //       productName: nameValue,
-  //       quantity: quantityValue,
-  //       category: categoryValue
-  //     };
-  //     console.log(data);
-  //     let res = await fetch("/api/addProductData", {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(data),
-  //     });
-  //     let response = await res.json();
-  //     if (response.success == true) {
-  //       // notifySuccess("Product Added Successfully.");
-  //       toast.update(id, {
-  //         position: "top-center",
-  //         hideProgressBar: true,
-  //         autoClose: 2000,
-  //         render: "Product Saved Successfully.",
-  //         type: "success",
-  //         isLoading: false,
-  //         theme: "colored",
-  //       }
-  //       );
-  //     } else {
-  //       notifyError("Error : Try again.")
-  //     }
-  //     console.log(response);
-  //     setRfidValue('');
-  //     setNameValue('');
-  //     setCategoryValue('');
-  //     setQuantityValue('');
-  //   }
-  //   else {
-  //     toast.warn("All fields are required!", {
-  //       position: "top-center",
-  //       autoClose: 1300,
-  //       hideProgressBar: true,
-  //       closeOnClick: false,
-  //       pauseOnHover: false,
-  //       draggable: false,
-  //       theme: "colored",
-  //     })
-  //   }
-  // }
+  const handleSubmitIncubatorTemp = async (e) => {
+    e.preventDefault();
+    if (incubatorTempUpLimit != '' && incubatorTempDownLimit != '') {
+      const data = {
+        sectionName: "IncubatorTemp",
+        incubatorTempUpLimit: incubatorTempUpLimit,
+        incubatorTempDownLimit: incubatorTempDownLimit
+      };
+      console.log(data);
+      let res = await fetch("/api/updateLimit", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      let response = await res.json();
+      if (response.success == true) {
+        console.log("Data Updated");
+      } else {
+        console.log("Data Updated Failed");
+      }
+      console.log(response);
+      setincubatorTempUpLimit('');
+      setincubatorTempDownLimit('');
+    }
+    else {
+      console.log("IncubatorTemp Every Field Should Fillup");
+    }
+  }
+
+  const handleSubmitIncubatorHumi = async (e) => {
+    e.preventDefault();
+    if (incubatorHumiUpLimit != '' && incubatorHumiDownLimit != '') {
+      const data = {
+        sectionName: "IncubatorHumi",
+        incubatorHumiUpLimit: incubatorHumiUpLimit,
+        incubatorHumiDownLimit: incubatorHumiDownLimit
+      };
+      console.log(data);
+      let res = await fetch("/api/updateLimit", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      let response = await res.json();
+      if (response.success == true) {
+        console.log("Data Updated");
+      } else {
+        console.log("Data Updated Failed");
+      }
+      console.log(response);
+      setincubatorHumiUpLimit('');
+      setincubatorHumiDownLimit('');
+    }
+    else {
+      console.log("IncubatorHumi Every Field Should Fillup");
+    }
+  }
+
+  const handleSubmitBrooderTemp = async (e) => {
+    e.preventDefault();
+    if (brooderTempUpLimit != '' && brooderTempDownLimit != '') {
+      const data = {
+        sectionName: "BrooderTemp",
+        brooderTempUpLimit: brooderTempUpLimit,
+        brooderTempDownLimit: brooderTempDownLimit
+      };
+      console.log(data);
+      let res = await fetch("/api/updateLimit", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      let response = await res.json();
+      if (response.success == true) {
+        console.log("Data Updated");
+      } else {
+        console.log("Data Updated Failed");
+      }
+      console.log(response);
+      setBrooderTempUpLimit('');
+      setBrooderTempDownLimit('');
+    }
+    else {
+      console.log("BrooderTemp Every Field Should Fillup");
+    }
+  }
+
+  const handleSubmitBrooderHumi = async (e) => {
+    e.preventDefault();
+    if (brooderHumiUpLimit != '' && brooderHumiDownLimit != '') {
+      const data = {
+        sectionName: "BrooderHumi",
+        brooderHumiUpLimit: brooderHumiUpLimit,
+        brooderHumiDownLimit: brooderHumiDownLimit
+      };
+      console.log(data);
+      let res = await fetch("/api/updateLimit", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      let response = await res.json();
+      if (response.success == true) {
+        console.log("Data Updated");
+      } else {
+        console.log("Data Updated Failed");
+      }
+      console.log(response);
+      setBrooderHumiUpLimit('');
+      setBrooderHumiDownLimit('');
+    }
+    else {
+      console.log("BrooderHumi Every Field Should Fillup");
+    }
+  }
+
+  const handleSubmitMatureTemp = async (e) => {
+    e.preventDefault();
+    if (bigChickTempUpLimit != '' && bigChickTempDownLimit != '') {
+      const data = {
+        sectionName: "MatureTemp",
+        bigChickTempUpLimit: bigChickTempUpLimit,
+        bigChickTempDownLimit: bigChickTempDownLimit
+      };
+      console.log(data);
+      let res = await fetch("/api/updateLimit", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      let response = await res.json();
+      if (response.success == true) {
+        console.log("Data Updated");
+      } else {
+        console.log("Data Updated Failed");
+      }
+      console.log(response);
+      setMatureTempUpLimit('');
+      setMatureTempDownLimit('');
+    }
+    else {
+      console.log("MatureTemp Every Field Should Fillup");
+    }
+  }
 
 
   useEffect(() => {
@@ -288,8 +420,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex-col space-y-3">
-             {/* onSubmit={handleSubmitIncubatorTemp} method="POST" */}
-              <form >
+              <form onSubmit={handleSubmitIncubatorTemp} method="POST" className="flex-col space-y-3">
                 <div className="space-y-1">
                   <Label>Temperature Upper Limit (&deg;F)</Label>
                   <Input className="bg-white" value={incubatorTempUpLimitData} readOnly></Input>
@@ -300,22 +431,23 @@ export default function Home() {
                   <Input className="bg-white" value={incubatorTempDownLimitData} readOnly></Input>
                   <Input name="incubatorTempDownLimitField" id="incubatorTempDownLimitField" onChange={handleChange} value={incubatorTempDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
                 </div>
-
-                <Button className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
+                <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
               </form>
             </div>
             <div className="flex-col space-y-3">
-              <div className="space-y-1">
-                <Label>Humidity Upper Limit (%)</Label>
-                <Input className="bg-white" value={incubatorHumiUpLimitData} readOnly></Input>
-                <Input className="bg-white" placeholder="Input Upper Limit"></Input>
-              </div>
-              <div className="space-y-1">
-                <Label>Humidity Lower Limit (%)</Label>
-                <Input className="bg-white" value={incubatorHumiDownLimitData} readOnly></Input>
-                <Input className="bg-white" placeholder="Input Lower Limit"></Input>
-              </div>
-              <Button className="bg-blue-500 hover:bg-blue-700 w-full">Change Humidity</Button>
+              <form onSubmit={handleSubmitIncubatorHumi} method="POST" className="flex-col space-y-3">
+                <div className="space-y-1">
+                  <Label>Humidity Upper Limit (%)</Label>
+                  <Input className="bg-white" value={incubatorHumiUpLimitData} readOnly></Input>
+                  <Input name="incubatorHumiUpLimitField" id="incubatorHumiUpLimitField" onChange={handleChange} value={incubatorHumiUpLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
+                </div>
+                <div className="space-y-1">
+                  <Label>Humidity Lower Limit (%)</Label>
+                  <Input className="bg-white" value={incubatorHumiDownLimitData} readOnly></Input>
+                  <Input name="incubatorHumiDownLimitField" id="incubatorHumiDownLimitField" onChange={handleChange} value={incubatorHumiDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
+                </div>
+                <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Humidity</Button>
+              </form>
             </div>
           </div>
         </div>
@@ -337,31 +469,35 @@ export default function Home() {
               </div>
             </div>
             <div className="flex-col space-y-3">
-              <div className="space-y-1">
-                <Label>Temperature Upper Limit (&deg;F)</Label>
-                <Input className="bg-white" value={brooderTempUpLimitData} readOnly></Input>
-                <Input className="bg-white" placeholder="Input Upper Limit"></Input>
-              </div>
-              <div className="space-y-1">
-                <Label>Temperature Lower Limit (&deg;F)</Label>
-                <Input className="bg-white" value={brooderTempDownLimitData} readOnly></Input>
-                <Input className="bg-white" placeholder="Input Lower Limit"></Input>
-              </div>
+              <form onSubmit={handleSubmitBrooderTemp} method="POST" className="flex-col space-y-3">
+                <div className="space-y-1">
+                  <Label>Temperature Upper Limit (&deg;F)</Label>
+                  <Input className="bg-white" value={brooderTempUpLimitData} readOnly></Input>
+                  <Input name="brooderTempUpLimitField" id="brooderTempUpLimitField" onChange={handleChange} value={brooderTempUpLimit} type="number" placeholder="Input Upper Limit" className="bg-white"></Input>
+                </div>
+                <div className="space-y-1">
+                  <Label>Temperature Lower Limit (&deg;F)</Label>
+                  <Input className="bg-white" value={brooderTempDownLimitData} readOnly></Input>
+                  <Input name="brooderTempDownLimitField" id="brooderTempDownLimitField" onChange={handleChange} value={brooderTempDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
+                </div>
 
-              <Button className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
+                <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
+              </form>
             </div>
             <div className="flex-col space-y-3">
-              <div className="space-y-1">
-                <Label>Humidity Upper Limit (%)</Label>
-                <Input className="bg-white" value={brooderHumiUpLimitData} readOnly></Input>
-                <Input className="bg-white" placeholder="Input Upper Limit"></Input>
-              </div>
-              <div className="space-y-1">
-                <Label>Humidity Lower Limit (%)</Label>
-                <Input className="bg-white" value={brooderHumiDownLimitData} readOnly></Input>
-                <Input className="bg-white" placeholder="Input Lower Limit"></Input>
-              </div>
-              <Button className="bg-blue-500 hover:bg-blue-700 w-full">Change Humidity</Button>
+              <form onSubmit={handleSubmitBrooderHumi} method="POST" className="flex-col space-y-3">
+                <div className="space-y-1">
+                  <Label>Humidity Upper Limit (%)</Label>
+                  <Input className="bg-white" value={brooderHumiUpLimitData} readOnly></Input>
+                  <Input name="brooderHumiUpLimitField" id="brooderHumiUpLimitField" onChange={handleChange} value={brooderHumiUpLimit} type="number" placeholder="Input Upper Limit" className="bg-white"></Input>
+                </div>
+                <div className="space-y-1">
+                  <Label>Humidity Lower Limit (%)</Label>
+                  <Input className="bg-white" value={brooderHumiDownLimitData} readOnly></Input>
+                  <Input name="brooderHumiDownLimitField" id="brooderHumiDownLimitField" onChange={handleChange} value={brooderHumiDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
+                </div>
+                <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Humidity</Button>
+              </form>
             </div>
           </div>
         </div>
@@ -379,18 +515,20 @@ export default function Home() {
               </div>
             </div>
             <div className="flex-col space-y-3">
-              <div className="space-y-1">
-                <Label>Temperature Upper Limit (&deg;F)</Label>
-                <Input className="bg-white" value={bigChickTempUpLimitData} readOnly></Input>
-                <Input className="bg-white" placeholder="Input Upper Limit"></Input>
-              </div>
+              <form onSubmit={handleSubmitMatureTemp} method="POST" className="flex-col space-y-3">
+                <div className="space-y-1">
+                  <Label>Temperature Upper Limit (&deg;F)</Label>
+                  <Input className="bg-white" value={bigChickTempUpLimitData} readOnly></Input>
+                  <Input name="matureTempUpLimitField" id="matureTempUpLimitField" onChange={handleChange} value={bigChickTempUpLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
+                </div>
 
-              <Button className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
+                <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
+              </form>
             </div>
             <div className="space-y-1">
               <Label>Temperature Lower Limit (&deg;F)</Label>
               <Input className="bg-white" value={bigChickTempDownLimitData} readOnly></Input>
-              <Input className="bg-white" placeholder="Input Lower Limit"></Input>
+              <Input name="matureTempDownLimitField" id="matureTempDownLimitField" onChange={handleChange} value={bigChickTempDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
             </div>
           </div>
         </div>
