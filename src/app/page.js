@@ -1,132 +1,3 @@
-// 'use client';
-// import { Label } from "@/components/ui/label";
-// import { Input } from "@/components/ui/input";
-// import { Button } from "@/components/ui/button";
-// import { useEffect, useState } from 'react';
-
-// export default function Home() {
-//   const [incubatorTemp, setIncubatorTemp] = useState('');
-//   const [incubatorHumi, setIncubatorHumi] = useState('');
-//   const [brooderTemp, setBrooderTemp] = useState('');
-//   const [brooderHumi, setBrooderHumi] = useState('');
-//   const [bigChickTemp, setBigChickTemp] = useState('');
-
-//   useEffect(() => {
-//     const fetchreceivedTag = async () => {
-
-//       let res = await fetch("/api/fetchData", {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-//       const receivedData = await res.json();
-//       console.log("response from fetchdata:", receivedData);
-
-//       if (receivedData.success == true) {
-//         tagFetchStatus = false;
-//         clearInterval(intervalId);
-//         setIncubatorTemp(receivedData.incubatorTemp);
-//         setIncubatorHumi(receivedData.incubatorHumi);
-//         setBrooderTemp(receivedData.brooderTemp);
-//         setBrooderHumi(receivedData.brooderHumi);
-//         setBigChickTemp(receivedData.bigChickTemp);
-//       } else {
-//         console.error(receivedData);
-//       }
-//     }
-//   }, []);
-
-//   return (
-//     <div className="h-screen flex justify-center items-center">
-//       <div className="flex-col justify-center">
-//         <h1 className="text-center text-lime-600 text-lg">Poultry Farm</h1>
-//         <div className="border border-slate-700 rounded-xl w-[700px] mt-4">
-//           <h3 className="text-center">Incubator Section</h3>
-//           <div>
-//             <div className="flex justify-center items-center space-x-3">
-//               <div>
-//                 <Label>Live Temperature</Label>
-//                 <Input value="32" readOnly></Input>
-//               </div>
-//               <div>
-//                 <Label>Change Temperature</Label>
-//                 <Input placeholder="Input Temperature"></Input>
-//               </div>
-//               <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
-//             </div>
-//             <div className="flex justify-center items-center space-x-3">
-//               <div>
-//                 <Label>Live Humidity</Label>
-//                 <Input value="70%" readOnly></Input>
-//               </div>
-//               <div>
-//                 <Label>Change Humidity</Label>
-//                 <Input placeholder="Input Humidity"></Input>
-//               </div>
-//               <Button className="bg-blue-500 hover:bg-blue-600">Change Humidity</Button>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="border border-slate-700 rounded-xl w-[700px] mt-4">
-//           <h3 className="text-center">Brooding Section</h3>
-//           <div>
-//             <div className="flex justify-center items-center space-x-3">
-//               <div>
-//                 <Label>Live Temperature</Label>
-//                 <Input value="32" readOnly></Input>
-//               </div>
-//               <div>
-//                 <Label>Change Temperature</Label>
-//                 <Input placeholder="Input Temperature"></Input>
-//               </div>
-//               <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
-//             </div>
-//             <div className="flex justify-center items-center space-x-3">
-//               <div>
-//                 <Label>Live Humidity</Label>
-//                 <Input value="70%" readOnly></Input>
-//               </div>
-//               <div>
-//                 <Label>Change Humidity</Label>
-//                 <Input placeholder="Input Humidity"></Input>
-//               </div>
-//               <Button className="bg-blue-500 hover:bg-blue-600">Change Humidity</Button>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="border border-slate-700 rounded-xl w-[700px] mt-4">
-//           <h3 className="text-center">Mature Section</h3>
-//           <div>
-//             <div className="flex justify-center items-center space-x-3">
-//               <div>
-//                 <Label>Live Temperature</Label>
-//                 <Input value="32" readOnly></Input>
-//               </div>
-//               <div>
-//                 <Label>Change Temperature</Label>
-//                 <Input placeholder="Input Temperature"></Input>
-//               </div>
-//               <Button className="bg-blue-500 hover:bg-blue-600">Change Temperature</Button>
-//             </div>
-//             <div className="flex justify-center items-center space-x-3">
-//               <div>
-//                 <Label>Live Humidity</Label>
-//                 <Input value="70%" readOnly></Input>
-//               </div>
-//               <div>
-//                 <Label>Change Humidity</Label>
-//                 <Input placeholder="Input Humidity"></Input>
-//               </div>
-//               <Button className="bg-blue-500 hover:bg-blue-600">Change Humidity</Button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 'use client';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -196,7 +67,7 @@ export default function Home() {
 
   const handleSubmitIncubatorTemp = async (e) => {
     e.preventDefault();
-    if (incubatorTempUpLimit != '' && incubatorTempDownLimit != '') {
+    if (incubatorTempUpLimit != '') {
       const data = {
         sectionName: "IncubatorTemp",
         incubatorTempUpLimit: incubatorTempUpLimit,
@@ -227,7 +98,7 @@ export default function Home() {
 
   const handleSubmitIncubatorHumi = async (e) => {
     e.preventDefault();
-    if (incubatorHumiUpLimit != '' && incubatorHumiDownLimit != '') {
+    if (incubatorHumiUpLimit != '') {
       const data = {
         sectionName: "IncubatorHumi",
         incubatorHumiUpLimit: incubatorHumiUpLimit,
@@ -258,7 +129,7 @@ export default function Home() {
 
   const handleSubmitBrooderTemp = async (e) => {
     e.preventDefault();
-    if (brooderTempUpLimit != '' && brooderTempDownLimit != '') {
+    if (brooderTempUpLimit != '') {
       const data = {
         sectionName: "BrooderTemp",
         brooderTempUpLimit: brooderTempUpLimit,
@@ -289,7 +160,7 @@ export default function Home() {
 
   const handleSubmitBrooderHumi = async (e) => {
     e.preventDefault();
-    if (brooderHumiUpLimit != '' && brooderHumiDownLimit != '') {
+    if (brooderHumiUpLimit != '') {
       const data = {
         sectionName: "BrooderHumi",
         brooderHumiUpLimit: brooderHumiUpLimit,
@@ -320,7 +191,7 @@ export default function Home() {
 
   const handleSubmitMatureTemp = async (e) => {
     e.preventDefault();
-    if (bigChickTempUpLimit != '' && bigChickTempDownLimit != '') {
+    if (bigChickTempUpLimit != '') {
       const data = {
         sectionName: "MatureTemp",
         bigChickTempUpLimit: bigChickTempUpLimit,
@@ -422,15 +293,15 @@ export default function Home() {
             <div className="flex-col space-y-3">
               <form onSubmit={handleSubmitIncubatorTemp} method="POST" className="flex-col space-y-3">
                 <div className="space-y-1">
-                  <Label>Temperature Upper Limit (&deg;F)</Label>
+                  <Label>Temperature Limit (&deg;F)</Label>
                   <Input className="bg-white" value={incubatorTempUpLimitData} readOnly></Input>
-                  <Input name="incubatorTempUpLimitField" id="incubatorTempUpLimitField" onChange={handleChange} value={incubatorTempUpLimit} type="number" placeholder="Input Upper Limit" className="bg-white"></Input>
+                  <Input name="incubatorTempUpLimitField" id="incubatorTempUpLimitField" onChange={handleChange} value={incubatorTempUpLimit} type="number" placeholder="Input Temperature Limit" className="bg-white"></Input>
                 </div>
-                <div className="space-y-1">
+                {/* <div className="space-y-1">
                   <Label>Temperature Lower Limit (&deg;F)</Label>
                   <Input className="bg-white" value={incubatorTempDownLimitData} readOnly></Input>
                   <Input name="incubatorTempDownLimitField" id="incubatorTempDownLimitField" onChange={handleChange} value={incubatorTempDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
-                </div>
+                </div> */}
                 <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
               </form>
             </div>
@@ -439,13 +310,13 @@ export default function Home() {
                 <div className="space-y-1">
                   <Label>Humidity Upper Limit (%)</Label>
                   <Input className="bg-white" value={incubatorHumiUpLimitData} readOnly></Input>
-                  <Input name="incubatorHumiUpLimitField" id="incubatorHumiUpLimitField" onChange={handleChange} value={incubatorHumiUpLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
+                  <Input name="incubatorHumiUpLimitField" id="incubatorHumiUpLimitField" onChange={handleChange} value={incubatorHumiUpLimit} type="number" placeholder="Input Humidity Limit" className="bg-white"></Input>
                 </div>
-                <div className="space-y-1">
+                {/* <div className="space-y-1">
                   <Label>Humidity Lower Limit (%)</Label>
                   <Input className="bg-white" value={incubatorHumiDownLimitData} readOnly></Input>
                   <Input name="incubatorHumiDownLimitField" id="incubatorHumiDownLimitField" onChange={handleChange} value={incubatorHumiDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
-                </div>
+                </div> */}
                 <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Humidity</Button>
               </form>
             </div>
@@ -471,15 +342,15 @@ export default function Home() {
             <div className="flex-col space-y-3">
               <form onSubmit={handleSubmitBrooderTemp} method="POST" className="flex-col space-y-3">
                 <div className="space-y-1">
-                  <Label>Temperature Upper Limit (&deg;F)</Label>
+                  <Label>Temperature Limit (&deg;F)</Label>
                   <Input className="bg-white" value={brooderTempUpLimitData} readOnly></Input>
-                  <Input name="brooderTempUpLimitField" id="brooderTempUpLimitField" onChange={handleChange} value={brooderTempUpLimit} type="number" placeholder="Input Upper Limit" className="bg-white"></Input>
+                  <Input name="brooderTempUpLimitField" id="brooderTempUpLimitField" onChange={handleChange} value={brooderTempUpLimit} type="number" placeholder="Input Temperature Limit" className="bg-white"></Input>
                 </div>
-                <div className="space-y-1">
+                {/* <div className="space-y-1">
                   <Label>Temperature Lower Limit (&deg;F)</Label>
                   <Input className="bg-white" value={brooderTempDownLimitData} readOnly></Input>
                   <Input name="brooderTempDownLimitField" id="brooderTempDownLimitField" onChange={handleChange} value={brooderTempDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
-                </div>
+                </div> */}
 
                 <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
               </form>
@@ -487,15 +358,15 @@ export default function Home() {
             <div className="flex-col space-y-3">
               <form onSubmit={handleSubmitBrooderHumi} method="POST" className="flex-col space-y-3">
                 <div className="space-y-1">
-                  <Label>Humidity Upper Limit (%)</Label>
+                  <Label>Humidity Limit (%)</Label>
                   <Input className="bg-white" value={brooderHumiUpLimitData} readOnly></Input>
-                  <Input name="brooderHumiUpLimitField" id="brooderHumiUpLimitField" onChange={handleChange} value={brooderHumiUpLimit} type="number" placeholder="Input Upper Limit" className="bg-white"></Input>
+                  <Input name="brooderHumiUpLimitField" id="brooderHumiUpLimitField" onChange={handleChange} value={brooderHumiUpLimit} type="number" placeholder="Input Humidity Limit" className="bg-white"></Input>
                 </div>
-                <div className="space-y-1">
+                {/* <div className="space-y-1">
                   <Label>Humidity Lower Limit (%)</Label>
                   <Input className="bg-white" value={brooderHumiDownLimitData} readOnly></Input>
                   <Input name="brooderHumiDownLimitField" id="brooderHumiDownLimitField" onChange={handleChange} value={brooderHumiDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
-                </div>
+                </div> */}
                 <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Humidity</Button>
               </form>
             </div>
@@ -517,7 +388,7 @@ export default function Home() {
             <div className="flex-col space-y-3">
               <form onSubmit={handleSubmitMatureTemp} method="POST" className="flex-col space-y-3">
                 <div className="space-y-1">
-                  <Label>Temperature Upper Limit (&deg;F)</Label>
+                  <Label>Temperature Limit (&deg;F)</Label>
                   <Input className="bg-white" value={bigChickTempUpLimitData} readOnly></Input>
                   <Input name="matureTempUpLimitField" id="matureTempUpLimitField" onChange={handleChange} value={bigChickTempUpLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
                 </div>
@@ -525,11 +396,11 @@ export default function Home() {
                 <Button type="submit" className="bg-blue-500 hover:bg-blue-700 w-full">Change Temperature</Button>
               </form>
             </div>
-            <div className="space-y-1">
+            {/* <div className="space-y-1">
               <Label>Temperature Lower Limit (&deg;F)</Label>
               <Input className="bg-white" value={bigChickTempDownLimitData} readOnly></Input>
               <Input name="matureTempDownLimitField" id="matureTempDownLimitField" onChange={handleChange} value={bigChickTempDownLimit} type="number" placeholder="Input Lower Limit" className="bg-white"></Input>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
