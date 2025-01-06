@@ -3,6 +3,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [incubatorTemp, setIncubatorTemp] = useState('');
@@ -269,9 +270,9 @@ export default function Home() {
           <h1 className="text-center text-white text-[30px]">Poultry Farm</h1>
         </div>
         <div className="grid grid-cols-3 space-x-5 mt-4">
-          <Button className="bg-blue-500 hover:bg-blue-600">Incubator Section Data</Button>
-          <Button className="bg-blue-500 hover:bg-blue-600">Brooder Section Data</Button>
-          <Button className="bg-blue-500 hover:bg-blue-600">Mature Section Data</Button>
+          <Button className="bg-blue-500 hover:bg-blue-600"><Link href="/incubatorData">Incubator Section Data</Link></Button>
+          <Button className="bg-blue-500 hover:bg-blue-600"><Link href="/brooderData">Brooder Section Data</Link></Button>
+          <Button className="bg-blue-500 hover:bg-blue-600"><Link href="/matureData">Mature Section Data</Link></Button>
         </div>
 
         {/*                  Incubator Section                   */}

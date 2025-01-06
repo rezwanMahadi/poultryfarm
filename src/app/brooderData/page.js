@@ -37,7 +37,7 @@ export default function IncubatorData() {
         <div className="flex justify-center">
             <div className="flex-col justify-center w-[70%]">
                 <div className="bg-sky-300 w-full rounded-md h-16 flex items-center justify-center fixed top-0 left-0 z-10">
-                    <h1 className="text-blue-900 text-[30px]">Incubator Section Data</h1>
+                    <h1 className="text-blue-900 text-[30px]">Brooder Section Data</h1>
                 </div>
                 <div className="mt-16 overflow-y-auto" style={{ marginTop: '64px', maxHeight: 'calc(100vh - 80px)' }}>
                     <table className="w-full table">
@@ -52,8 +52,8 @@ export default function IncubatorData() {
                             {allData.map(data => (
                                 <tr key={data._id}>
                                     <td className="td">{data._id}</td>
-                                    <td className="td">{data.incubatorTemp}</td>
-                                    <td className="td">{data.incubatorHumi}</td>
+                                    <td className="td">{data.brooderTemp}</td>
+                                    <td className="td">{data.brooderHumi}</td>
                                 </tr>
                             ))}
                         </tbody>
