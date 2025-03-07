@@ -269,10 +269,11 @@ export default function Home() {
         <div className="bg-sky-800 mt-8">
           <h1 className="text-center text-white text-[30px]">Poultry Farm</h1>
         </div>
-        <div className="grid grid-cols-3 space-x-5 mt-4">
+        <div className="grid grid-cols-4 space-x-5 mt-4">
           <Button className="bg-blue-500 hover:bg-blue-600"><Link href="/incubatorData">Incubator Section Data</Link></Button>
           <Button className="bg-blue-500 hover:bg-blue-600"><Link href="/brooderData">Brooder Section Data</Link></Button>
           <Button className="bg-blue-500 hover:bg-blue-600"><Link href="/matureData">Mature Section Data</Link></Button>
+          <Button className="bg-red-500 hover:bg-red-700"><Link href="/login">Log Out</Link></Button>
         </div>
 
         {/*                  Incubator Section                   */}
