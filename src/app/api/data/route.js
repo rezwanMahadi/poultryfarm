@@ -13,6 +13,16 @@ export async function POST(request) {
     console.log(receivedData);
     console.log(receivedData.incubatorTemp);
     console.log(receivedData.incubatorHumi);
+    
+    let time = new Date().toLocaleString();
+    let receivedDataWithTime = {
+        incubatorTemp: receivedData.incubatorTemp,
+        incubatorHumi: receivedData.incubatorHumi,
+        brooderTemp: receivedData.brooderTemp,
+        brooderHumi: receivedData.brooderHumi,
+        bigChickTemp: receivedData.bigChickTemp,
+        time: String(time)
+    };
 
     if (request.method == "POST") {
         try {
@@ -24,12 +34,12 @@ export async function POST(request) {
                     incubatorHumi: receivedData.incubatorHumi,
                     brooderTemp: receivedData.brooderTemp,
                     brooderHumi: receivedData.brooderHumi,
-                    bigChickTemp: receivedData.bigChickTemp
-                },  // Update the data            
+                    bigChickTemp: receivedData.bigChickTemp,
+                },        
                 { new: true }                                  // Return the updated document
             );
 
-            const recordData = new mongoose.models.farmDataRecord(receivedData);
+            const recordData = new mongoose.models.farmDataRecord(receivedDataWithTime);
             await recordData.save().then(() => console.log("recordData saved"), () => console.log("recordData save failed"));
 
             // await data.save().then(() => console.log("data saved"), () => console.log("data save failed"));

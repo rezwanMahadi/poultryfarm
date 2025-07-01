@@ -50,7 +50,7 @@ export default function IncubatorData() {
                         <tbody>
                             {allData.map(data => (
                                 <tr key={data._id}>
-                                    <td className="td">{data._id}</td>
+                                    <td className="td">{data.time}</td>
                                     <td className="td">{data.bigChickTemp}</td>
                                 </tr>
                             ))}
