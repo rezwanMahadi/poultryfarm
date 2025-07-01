@@ -14,7 +14,7 @@ export async function POST(request) {
     console.log(receivedData.incubatorTemp);
     console.log(receivedData.incubatorHumi);
     
-    let time = new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" }) + " GMT+6";
+    let time = new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" });
     let receivedDataWithTime = {
         incubatorTemp: receivedData.incubatorTemp,
         incubatorHumi: receivedData.incubatorHumi,
